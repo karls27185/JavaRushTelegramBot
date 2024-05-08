@@ -1,0 +1,14 @@
+version: '3'
+networks:
+  jrtb-network:
+    driver: bridge
+services:
+  jrtb:
+    image: bellsoft/liberica-openjdk-debian:17
+    working_dir: /app
+    command: java -jar JavaOpenGl-jar-with-dependencies.jar
+    volumes:
+      - ./JavaOpenGl-jar-with-dependencies.jar:/app/JavaOpenGl-jar-with-dependencies.jar
+    networks:
+      - jrtb-network
+    restart: unless-stopped
